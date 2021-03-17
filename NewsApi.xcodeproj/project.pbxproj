@@ -47,6 +47,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		90F5F4F726025FC7003B39B3 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				90FC318D25FA90CF00369D56 /* NewsManager.swift */,
+				90FC319025FA916200369D56 /* NewsData.swift */,
+				90FC319325FAC49500369D56 /* News.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		90F5F4F926025FDE003B39B3 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				90FC31A125FC1DCE00369D56 /* TableViewCell.swift */,
+				90FC317B25FA8FCC00369D56 /* Main.storyboard */,
+				90FC318025FA8FCD00369D56 /* LaunchScreen.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		90F5F4FA26025FF3003B39B3 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				90FC319D25FBB53000369D56 /* TableViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		90FC316925FA8FCC00369D56 = {
 			isa = PBXGroup;
 			children = (
@@ -69,14 +97,10 @@
 				90FC317525FA8FCC00369D56 /* AppDelegate.swift */,
 				90FC317725FA8FCC00369D56 /* SceneDelegate.swift */,
 				90FC318A25FA903D00369D56 /* Variable.swift */,
-				90FC318D25FA90CF00369D56 /* NewsManager.swift */,
-				90FC319025FA916200369D56 /* NewsData.swift */,
-				90FC319D25FBB53000369D56 /* TableViewController.swift */,
-				90FC31A125FC1DCE00369D56 /* TableViewCell.swift */,
-				90FC319325FAC49500369D56 /* News.swift */,
-				90FC317B25FA8FCC00369D56 /* Main.storyboard */,
+				90F5F4F726025FC7003B39B3 /* Model */,
+				90F5F4F926025FDE003B39B3 /* View */,
+				90F5F4FA26025FF3003B39B3 /* Controller */,
 				90FC317E25FA8FCD00369D56 /* Assets.xcassets */,
-				90FC318025FA8FCD00369D56 /* LaunchScreen.storyboard */,
 				90FC318325FA8FCD00369D56 /* Info.plist */,
 			);
 			path = NewsApi;

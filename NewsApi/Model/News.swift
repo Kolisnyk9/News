@@ -13,6 +13,7 @@ struct News {
     var description: [String] = [""]
     var url: [String] = [""]
     var urlToImage:[String] = [""]
+    var imageUrl: [URL] = []
     var publishedAt: [String] = [""]
     var content: [String] = [""]
 
@@ -25,14 +26,16 @@ struct News {
     
     init(newsData: NewsData){
         for a in newsData.articles {
-            author.append(a.author ?? "no" )
-            title.append(a.title ?? "no")
-            description.append(a.description ?? "no")
+            author.append(a.author ?? "No author" )
+            title.append(a.title ?? "No title")
+            description.append(a.description ?? "No description")
             url.append(a.url ?? "no")
             urlToImage.append(a.urlToImage ?? "no")
-            publishedAt.append(a.publishedAt ?? "no")
-            content.append(a.content ?? "no")
+            publishedAt.append(a.publishedAt ?? "No publishedAt")
+            content.append(a.content ?? "No content")
         }
+        imageUrl = urlToImage.compactMap { URL(string:$0) }
+        imageUrl.remove(at: 0)
         author.remove(at: 0)
         title.remove(at: 0)
         description.remove(at: 0)

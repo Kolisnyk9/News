@@ -23,7 +23,7 @@ class NewsManager {
                 }
             }
             if let error = error{
-                print(error.localizedDescription)
+                print("Помилка в сесії \(error.localizedDescription)")
             }
         }
         task.resume()
@@ -36,7 +36,7 @@ class NewsManager {
             let news = News(newsData: currentNews)
             return news
         } catch let error as NSError{
-            print(error.localizedDescription)
+            print("Помилка в JSONDecoderp\(error.localizedDescription)")
             
         }
         print("return nil")
