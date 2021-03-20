@@ -6,40 +6,39 @@
 //
 
 import UIKit
-
+import SDWebImage
 class TableViewController: UITableViewController {
-    
+   
     var newsManager = NewsManager()
     var authorName: [String] = [""]
     var titleNews: [String] = [""]
     var descriptionNews: [String] = [""]
     var url: [String] = [""]
     var urlToImage: [String] = [""]
-    var imageUrl: [URL] = []
     var publishedAt: [String] = [""]
     var content: [String] = [""]
-    
+
     
     override func viewDidLoad() {
-        
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
         
-        newsManager.fetchNews { news in
+        newsManager.fetchNews { [weak self] news in
+            guard let self = self else { return }
             DispatchQueue.main.async {
                 self.authorName = news.author
                 self.titleNews = news.title
                 self.descriptionNews = news.description
                 self.url = news.url
                 self.urlToImage = news.urlToImage
-                self.imageUrl = news.imageUrl
                 self.publishedAt = news.publishedAt
                 self.content = news.content
                 self.tableView.reloadData()
             }
         }
-        
+
+
         tableView.reloadData()
     }
     
@@ -63,7 +62,7 @@ class TableViewController: UITableViewController {
         cell.descriptionLabel.text = descriptionNews[indexPath.row]
         cell.dateLabel.text = publishedAt[indexPath.row]
         cell.authorLabel.text = authorName[indexPath.row]
-        cell.newsImage.downloaded(from: urlToImage[indexPath.row])
+        cell.newsImage.sd_setImage(with: URL(string: urlToImage[indexPath.row]), completed: nil)
         return cell
     }
 }
@@ -71,25 +70,4 @@ class TableViewController: UITableViewController {
 
 
 // MARK: - Image from string url
-extension UIImageView {
-    func downloaded(from url: URL, contentMode mode: UIView.ContentMode = .scaleAspectFit) {
-        contentMode = mode
-        URLSession.shared.dataTask(with: url) { data, response, error in
-            guard
-                let httpURLResponse = response as? HTTPURLResponse, httpURLResponse.statusCode == 200,
-                let mimeType = response?.mimeType, mimeType.hasPrefix("image"),
-                let data = data, error == nil,
-                let image = UIImage(data: data)
-                else { return }
-            DispatchQueue.main.async() {
-                self.image = image
-            }
-        }.resume()
-    }
-    func downloaded(from link: String, contentMode mode: UIView.ContentMode = .scaleAspectFit) {
-        guard let url = URL(string: link) else { return }
-        downloaded(from: url, contentMode: mode)
-    }
-}
-
-
+ 

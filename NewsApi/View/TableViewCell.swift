@@ -19,9 +19,7 @@ class TableViewCell: UITableViewCell {
         super.awakeFromNib()
         
     }
-    func configure(url: String){
-        newsImage.imageFrom(url: url)
-    }
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         

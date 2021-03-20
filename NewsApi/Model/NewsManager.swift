@@ -9,8 +9,7 @@ import Foundation
 
 
 class NewsManager {
-    
-    
+
     var urlString = "https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=\(apiKey)"
     func fetchNews(completionHandler: @escaping (News) -> Void){
 
