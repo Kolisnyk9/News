@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Eby-kK-Cpo">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="VEf-Ro-QZY">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17701"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Table View Controller-->
+        <!--Item-->
         <scene sceneID="WaN-sF-FsN">
             <objects>
                 <tableViewController id="Eby-kK-Cpo" customClass="TableViewController" customModule="NewsApi" customModuleProvider="target" sceneMemberID="viewController">
@@ -32,8 +33,8 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sleep" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Djw-Fo-vhP">
-                                            <rect key="frame" x="20" y="40.5" width="89" height="88"/>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="photo" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Djw-Fo-vhP">
+                                            <rect key="frame" x="20" y="41" width="89" height="86.5"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="89" id="6ah-sP-poZ"/>
                                                 <constraint firstAttribute="width" constant="89" id="mMN-8w-shP"/>
@@ -109,14 +110,126 @@
                             <outlet property="delegate" destination="Eby-kK-Cpo" id="giW-Qg-P3v"/>
                         </connections>
                     </tableView>
+                    <tabBarItem key="tabBarItem" title="Item" id="D6Z-kQ-heL"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j2Z-nc-id3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="215.94202898550725" y="24.776785714285712"/>
+            <point key="canvasLocation" x="1116" y="-348"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="Mdt-b1-y2d">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="VEf-Ro-QZY" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="juW-QQ-eMy">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="Eby-kK-Cpo" kind="relationship" relationship="viewControllers" id="pCz-PM-fgs"/>
+                        <segue destination="xtG-v6-qGU" kind="relationship" relationship="viewControllers" id="C99-Yq-PYj"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rVJ-3M-UkK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="109" y="25"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="DtV-N4-Pzc">
+            <objects>
+                <viewController id="xtG-v6-qGU" customClass="PreferenceViewController" customModule="NewsApi" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Aw6-mz-aWz">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="n1I-Ea-saO">
+                                <rect key="frame" x="20" y="162" width="374" height="48"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Country" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m1r-aI-XPm">
+                                        <rect key="frame" x="0.0" y="0.0" width="104" height="48"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nTR-Bj-SfZ">
+                                        <rect key="frame" x="124" y="0.0" width="250" height="48"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                        <state key="normal" title="Select">
+                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="countrySelect:" destination="xtG-v6-qGU" eventType="touchUpInside" id="qg4-eX-2nx"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="iV6-7I-aCa">
+                                <rect key="frame" x="20" y="243" width="374" height="48"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Source" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BpW-ew-hDg">
+                                        <rect key="frame" x="0.0" y="0.0" width="91" height="48"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zXd-6M-qXq">
+                                        <rect key="frame" x="111" y="0.0" width="263" height="48"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                        <state key="normal" title="Select">
+                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="sourceSelect:" destination="xtG-v6-qGU" eventType="touchUpInside" id="TFB-Pm-cVa"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="B1F-Zg-wJA">
+                                <rect key="frame" x="20" y="324" width="374" height="48"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Category" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bLF-Zr-evf">
+                                        <rect key="frame" x="0.0" y="0.0" width="119" height="48"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yvj-Yb-pg8">
+                                        <rect key="frame" x="139" y="0.0" width="235" height="48"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                        <state key="normal" title="Select">
+                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="categorySelect:" destination="xtG-v6-qGU" eventType="touchUpInside" id="sXJ-ZO-md8"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="KmN-vT-QYi"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="B1F-Zg-wJA" firstAttribute="top" secondItem="iV6-7I-aCa" secondAttribute="bottom" constant="33" id="4tB-lE-XTb"/>
+                            <constraint firstItem="KmN-vT-QYi" firstAttribute="trailing" secondItem="B1F-Zg-wJA" secondAttribute="trailing" constant="20" id="6SD-Nc-y0Z"/>
+                            <constraint firstItem="iV6-7I-aCa" firstAttribute="top" secondItem="n1I-Ea-saO" secondAttribute="bottom" constant="33" id="8fq-8B-bQk"/>
+                            <constraint firstItem="n1I-Ea-saO" firstAttribute="leading" secondItem="KmN-vT-QYi" secondAttribute="leading" constant="20" id="MFo-Ds-Znc"/>
+                            <constraint firstItem="iV6-7I-aCa" firstAttribute="leading" secondItem="KmN-vT-QYi" secondAttribute="leading" constant="20" id="Zlm-0a-g67"/>
+                            <constraint firstItem="B1F-Zg-wJA" firstAttribute="leading" secondItem="KmN-vT-QYi" secondAttribute="leading" constant="20" id="nEE-je-gMZ"/>
+                            <constraint firstItem="KmN-vT-QYi" firstAttribute="trailing" secondItem="n1I-Ea-saO" secondAttribute="trailing" constant="20" id="otA-Co-9Qf"/>
+                            <constraint firstItem="n1I-Ea-saO" firstAttribute="top" secondItem="KmN-vT-QYi" secondAttribute="top" constant="118" id="qWP-F1-siK"/>
+                            <constraint firstItem="KmN-vT-QYi" firstAttribute="trailing" secondItem="iV6-7I-aCa" secondAttribute="trailing" constant="20" id="zSk-JM-Uoc"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="h2X-rL-oLq"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kDX-nV-KZq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1114.4927536231885" y="295.98214285714283"/>
         </scene>
     </scenes>
     <resources>
-        <image name="sleep" catalog="system" width="128" height="121"/>
+        <image name="photo" catalog="system" width="128" height="93"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

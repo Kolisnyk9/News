@@ -66,8 +66,3 @@ class TableViewController: UITableViewController {
         return cell
     }
 }
-
-
-
-// MARK: - Image from string url
- 
