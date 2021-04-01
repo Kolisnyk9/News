@@ -15,14 +15,7 @@ struct News {
     var urlToImage:[String] = [""]
     var publishedAt: [String] = [""]
     var content: [String] = [""]
-
-//    func getNews() -> [News]{
-//        var news = [News]()
-//        
-//        return news
-//    }
-    
-    
+        
     init(newsData: NewsData){
         for a in newsData.articles {
             author.append(a.author ?? "No author" )

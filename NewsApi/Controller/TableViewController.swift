@@ -18,12 +18,18 @@ class TableViewController: UITableViewController {
     var publishedAt: [String] = [""]
     var content: [String] = [""]
 
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
         
+        
+        updateInterface()
+
+    }
+    func updateInterface(){
         newsManager.fetchNews { [weak self] news in
             guard let self = self else { return }
             DispatchQueue.main.async {
@@ -36,12 +42,14 @@ class TableViewController: UITableViewController {
                 self.content = news.content
                 self.tableView.reloadData()
             }
+            print(self.authorName)
         }
-
-
         tableView.reloadData()
     }
     
+    @IBAction func refreshPressed(_ sender: Any) {
+    updateInterface()
+    }
     // MARK: - Table view data source
     
     override func numberOfSections(in tableView: UITableView) -> Int {

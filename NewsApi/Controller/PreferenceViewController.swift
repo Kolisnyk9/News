@@ -8,6 +8,7 @@
 import UIKit
 import DropDown
 class PreferenceViewController: UIViewController {
+    var nw = NewsManager()
     let dropDown = DropDown()
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,15 +18,16 @@ class PreferenceViewController: UIViewController {
     
     @IBAction func countrySelect(_ sender: UIButton) {
         dropDown.dataSource = ["Arab Emirates", "Argentina", "Austria", "Australia", "Belgium", "Bulgaria", "Brazil", "Canada", "Switzerland", "China", "Colombia", "Cuba", "Czechia", "Germany", "Egypt", "France", "United Kingdom", "Greece", "Hong Kong", "Hungary", "Indonesia", "Ireland", "Israel", "India", "Italy", "Japan", "South Korea", "Lithuania", "Latvia","Morocco",
-            "Mexico" , "Nigeria", "Netherlands", "Norway", "New Zealand", "Philippines", "Poland", "Portugal", "Romania", "Serbia", "Russia", "South Africa", "Sweden", "Singapore", "Slovenia", "Slovakia", "Thailand", "Turkey", "Taiwan", "Ukraine", "United States", "Venezuela", "South Africa"]//4
+            "Mexico" , "Nigeria", "Netherlands", "Norway", "New Zealand", "Philippines", "Poland", "Portugal", "Romania", "Serbia", "Russia", "South Africa", "Sweden", "Singapore", "Slovenia", "Slovakia", "Thailand", "Turkey", "Taiwan", "Ukraine", "USA", "Venezuela"]//4
   
-
+            
             dropDown.anchorView = sender //5
             dropDown.bottomOffset = CGPoint(x: 0, y: sender.frame.size.height) //6
             dropDown.show() //7
             dropDown.selectionAction = { [weak self] (index: Int, item: String) in //8
-              guard let _ = self else { return }
+              guard let self = self else { return }
               sender.setTitle(item, for: .normal) //9
+                self.nw.getUrlCountry(country: item)
             }
     }
     @IBAction func sourceSelect(_ sender: UIButton) {
