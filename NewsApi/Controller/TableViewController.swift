@@ -8,8 +8,9 @@
 import UIKit
 import SDWebImage
 class TableViewController: UITableViewController {
-   
+    
     var newsManager = NewsManager()
+    var vc = ViewController()
     var authorName: [String] = [""]
     var titleNews: [String] = [""]
     var descriptionNews: [String] = [""]
@@ -18,37 +19,33 @@ class TableViewController: UITableViewController {
     var publishedAt: [String] = [""]
     var content: [String] = [""]
 
-
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
-        
-        
-        updateInterface()
-
-    }
-    func updateInterface(){
-        newsManager.fetchNews { [weak self] news in
-            guard let self = self else { return }
-            DispatchQueue.main.async {
-                self.authorName = news.author
-                self.titleNews = news.title
-                self.descriptionNews = news.description
-                self.url = news.url
-                self.urlToImage = news.urlToImage
-                self.publishedAt = news.publishedAt
-                self.content = news.content
-                self.tableView.reloadData()
-            }
-            print(self.authorName)
+        newsManager.onComplition  = { [weak self] news in
+            guard let self = self else {return}
+            self.updateInterface(news: news)
         }
-        tableView.reloadData()
+        newsManager.fetchNews(countryKey: globalKey)
     }
     
-    @IBAction func refreshPressed(_ sender: Any) {
-    updateInterface()
+    @IBAction func reloadInterface(_ sender: Any) {
+        newsManager.fetchNews(countryKey: globalKey)
+    }
+    func updateInterface(news: News){
+        
+        DispatchQueue.main.async {
+            self.authorName = news.author
+            self.titleNews = news.title
+            self.descriptionNews = news.description
+            self.url = news.url
+            self.urlToImage = news.urlToImage
+            self.publishedAt = news.publishedAt
+            self.content = news.content
+            self.tableView.reloadData()
+        }
+        
     }
     // MARK: - Table view data source
     
@@ -59,7 +56,6 @@ class TableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        
         return authorName.count
     }
     
