@@ -8,6 +8,7 @@
 import UIKit
 import SDWebImage
 import SafariServices
+
 class TableViewController: UITableViewController {
     
     var newsManager = NewsManager()

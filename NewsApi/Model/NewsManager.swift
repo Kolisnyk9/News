@@ -16,7 +16,7 @@ class NewsManager {
     
     func fetchNews(countryKey: String){
         
-        let urlString = "https://newsapi.org/v2/top-headlines?country=\(countryKey)&category=business&apiKey=\(apiKey)"
+        let urlString = "https://newsapi.org/v2/top-headlines?country=\(countryKey)&category=\(category)&apiKey=\(apiKey)"
         guard let url = URL(string: urlString) else { return }
         let session = URLSession(configuration: .default)
         let task = session.dataTask(with: url) { (data, response, error) in

@@ -9,3 +9,4 @@ import Foundation
 
 let apiKey = "b862fe2f54d946b4bb290ca7e544fd77"
 var globalKey = "pl"
+var category = "business"
