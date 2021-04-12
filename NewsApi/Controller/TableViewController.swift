@@ -7,6 +7,7 @@
 
 import UIKit
 import SDWebImage
+import SafariServices
 class TableViewController: UITableViewController {
     
     var newsManager = NewsManager()
@@ -68,5 +69,11 @@ class TableViewController: UITableViewController {
         cell.authorLabel.text = authorName[indexPath.row]
         cell.newsImage.sd_setImage(with: URL(string: urlToImage[indexPath.row]), completed: nil)
         return cell
+    }
+    /// Opening website  from url array usd indexpath
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let link = url[indexPath.row]
+        let vc = SFSafariViewController(url: URL(string:link)!)
+        present(vc, animated: true)
     }
 }
