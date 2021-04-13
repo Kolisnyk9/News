@@ -32,6 +32,10 @@ class TableViewController: UITableViewController {
         newsManager.fetchNews(countryKey: globalKey)
     }
     
+    @IBAction func refreshAction(_ sender: UIRefreshControl) {
+        sender.endRefreshing()
+        newsManager.fetchNews(countryKey: globalKey)
+    }
     @IBAction func reloadInterface(_ sender: Any) {
         newsManager.fetchNews(countryKey: globalKey)
     }
