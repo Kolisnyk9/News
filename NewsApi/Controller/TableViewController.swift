@@ -36,9 +36,7 @@ class TableViewController: UITableViewController {
         sender.endRefreshing()
         newsManager.fetchNews(countryKey: globalKey)
     }
-    @IBAction func reloadInterface(_ sender: Any) {
-        newsManager.fetchNews(countryKey: globalKey)
-    }
+
     func updateInterface(news: News){
         
         DispatchQueue.main.async {
